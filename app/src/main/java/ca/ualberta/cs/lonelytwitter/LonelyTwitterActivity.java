@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Team X, CMPUT301, University of Alberta- All Rights Reserved. You may use, distribute or modify this code under terms and condisitons of the Code of Students Behaviour at University of Alberta.
+ */
+
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -23,6 +28,17 @@ import android.widget.ListView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+/**
+ * Represents a LonelyTwitterActivity
+ *
+ * @author kivrikog
+ * @version 1.0
+ * @see Tweet
+ * @see Mood
+ * @see Tweetable
+ * @see ImportantTweet
+ * @since 1.0
+ */
 
 public class LonelyTwitterActivity extends Activity {
 
@@ -44,6 +60,11 @@ public class LonelyTwitterActivity extends Activity {
 		Button clearButton = (Button) findViewById(R.id.clear);
 		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
 
+        /**Saves when the button is pressed and saves in the file
+         *
+         * @param tweets
+         */
+
 		saveButton.setOnClickListener(new View.OnClickListener() {
 
 
@@ -61,6 +82,13 @@ public class LonelyTwitterActivity extends Activity {
 			}
 		});
 
+        /**
+         * Clears the tweets and saves in file
+         *
+         * @param tweets to clear
+         *
+         */
+
 		clearButton.setOnClickListener(new View.OnClickListener(){
 
 			public void onClick(View v){
@@ -75,6 +103,7 @@ public class LonelyTwitterActivity extends Activity {
 		});
 	}
 
+
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -86,6 +115,11 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
+    /**
+     * Loads the tweets from the file
+     * @throws RuntimeException
+     * @throws  FileNotFoundException
+     */
 	private void loadFromFile() {
 
 		try {
@@ -105,6 +139,11 @@ public class LonelyTwitterActivity extends Activity {
 		}
 
 	}
+    /**
+     * Saves the tweets to the file
+     * @throws RuntimeException
+     * @throws  FileNotFoundException
+     */
 	
 	private void saveInFile() {
 		try {
